@@ -33,7 +33,7 @@ export default function ProductSearchForm() {
       />
 
       <input
-        type="Submit"
+        type="submit"
         value="Buscar"
         className="bg-indigo-600 p-2 uppercase text-white cursor-pointer hover:bg-indigo-700 transition-colors ml-2"
       />

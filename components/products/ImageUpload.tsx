@@ -1,5 +1,6 @@
 "use client";
 
+import { getImagePath } from "@/src/utils";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { useState } from "react";
@@ -52,7 +53,7 @@ export default function ImageUpload({ image }: ImageUploadProps) {
                 <Image
                   fill
                   style={{ objectFit: "contain" }}
-                  src={image}
+                  src={getImagePath(image)}
                   alt="Imagen de Producto"
                 />
               </div>
