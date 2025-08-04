@@ -15,13 +15,13 @@ export const useStore = create<Store>((set, get) => ({
   order: [],
 
   addToCart: (product) => {
-    const { categoryId, image, ...rest } = product;
+    const { id, name, price } = product;
 
     let order: OrderItem[] = [];
 
-    if (get().order.find((i) => i.id == product.id)) {
+    if (get().order.find((i) => i.id == id)) {
       order = get().order.map((item) => {
-        if (item.id === product.id) {
+        if (item.id === id) {
           return {
             ...item,
             quantity: item.quantity + 1,
@@ -33,7 +33,7 @@ export const useStore = create<Store>((set, get) => ({
     } else {
       order = [
         ...get().order,
-        { ...rest, quantity: 1, subtotal: 1 * rest.price },
+        { id, name, price, quantity: 1, subtotal: 1 * price },
       ];
     }
 
